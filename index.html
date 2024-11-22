@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Cửa hàng công nghệ tương lai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            perspective: 1000px;
+        }
+
+        header {
+            background: rgba(0,0,0,0.9);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00f7ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2em;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f7ff;
+            transition: 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, #00f7ff22, #ff00ff22);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00f7ff;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px #00f7ff;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product-card h3 {
+            color: #00f7ff;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #ff00ff;
+            margin: 10px 0;
+        }
+
+        .buy-btn {
+            background: linear-gradient(45deg, #00f7ff, #ff00ff);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0,247,255,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .products {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">TechStore</div>
+            <nav>
+                <a href="#home">Trang chủ</a>
+                <a href="#products">Sản phẩm</a>
+                <a href="#about">Giới thiệu</a>
+                <a href="#contact">Liên hệ</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>TƯƠNG LAI CÔNG NGHỆ</h1>
+                <p>Khám phá những sản phẩm công nghệ đỉnh cao</p>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(45deg, #00f7ff, #ff00ff); height: 200px;"></div>
+                <h3>Smart AI Assistant</h3>
+                <p>Trợ lý ảo thông minh với AI tiên tiến</p>
+                <div class="price">29.999.000đ</div>
+                <button class="buy-btn">Mua ngay</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(-45deg, #00f7ff, #ff00ff); height: 200px;"></div>
+                <h3>Hologram Display</h3>
+                <p>Màn hình hologram 3D tương tác</p>
+                <div class="price">49.999.000đ</div>
+                <button class="buy-btn">Mua ngay</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image" style="background: linear-gradient(90deg, #00f7ff, #ff00ff); height: 200px;"></div>
+                <h3>Neural Link Pro</h3>
+                <p>Thiết bị kết nối não bộ thế hệ mới</p>
+                <div class="price">99.999.000đ</div>
+                <button class="buy-btn">Mua ngay</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.transform = `perspective(1000px) 
+                    rotateY(${(x - rect.width/2)/20}deg) 
+                    rotateX(${-(y - rect.height/2)/20}deg)
+                    translateY(-10px)`;
+            });
+        });
+
+        document.addEventListener('mouseleave', () => {
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
